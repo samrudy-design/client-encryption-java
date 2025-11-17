@@ -13,6 +13,7 @@ name: Sonar
 jobs:
   build:
     runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.SONAR_TOKEN != '' }}
     steps:
     
       - name: Set up JDK
