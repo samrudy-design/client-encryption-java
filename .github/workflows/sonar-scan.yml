@@ -36,6 +36,7 @@ jobs:
           mvn clean install -Dgpg.signature.skip=true --file pom.xml
       
       - name: Sonar Scan
+        if: ${{ secrets.SONAR_TOKEN != '' }}
         env:
           GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'
           SONAR_TOKEN: '${{ secrets.SONAR_TOKEN }}'
